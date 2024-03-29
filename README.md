@@ -1,30 +1,42 @@
-# React + TypeScript + Vite
+# Select-input-lib
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This Select input library is a simple and easy to use library that allows you to create a select input in React. The library is written in TypeScript and uses React.
 
-Currently, two official plugins are available:
+## Installation and Usage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To install the library, run the following command:
+
+```bash
+npm install select-input-lib
+```
+
+To use the library, import the `SelectInput` component and use it in your code:
+
+```jsx
+import React from 'react';
+import { SelectInput } from 'select-input-lib';
+
+const [selectedValue, setSelectedValue] = React.useState(null);
+
+const options = [
+  { value: '1', label: 'Option 1' },
+  { value: '2', label: 'Option 2' },
+  { value: '3', label: 'Option 3' },
+];
+
+
+
+const App = () => {
+  return (
+    <SelectInput
+      options={options}
+      onChange={setSelectedValue}
+      value={selectedValue}
+    />
+  );
+};
 
 ## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
